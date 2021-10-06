@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input name="a랑 b입력">  -->
+
+    <script>
+        alert("고구마 먹고 올게요")
+        let word = prompt("a랑 b머여", "")
+        console.log(typeof(word), word, "word")
+        let arr = word.split(",")
+        console.log(typeof(arr), arr, "arr")
+        // let a = 1; let b = 1;
+        let a = parseInt(arr[0]);
+        let b = parseInt(arr[1]);
+        
+        // [1];
+
+        if (a+b < 4) {
+            results = "under";
+        } else {
+            results = "over";
+        }
+        alert(results)
+
+        let result_Q = (a+b < 4) ? 'under' : "over";
+        alert(result_Q)        
+
+    </script>
+</body>
+</html>
