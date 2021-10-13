@@ -1,16 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;flex: auto;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          overflow:visible;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:rgb(91, 43, 43);border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test_html</title>
 </head>
-<body>
+<body >
     <!-- <input name="a랑 b입력">  -->
 
-    <script>
-        alert("고구마 먹고 올게요")
+        <table class="tg" id="table_mysurvey" value="inner_text_test">
+        <thead>
+          <tr>
+            <th class="tg-0lax"></th>
+            보기
+            <th class="tg-0lax"></th>
+            번호
+            <th class="tg-0lax"></th>
+            이름
+            <th class="tg-0lax"></th>
+            인원
+          </tr>
+        </thead>
+        <tbody id = "div_poll_count">
+          <tr>
+            <td class="tg-0lax"></td>
+            1
+            <td class="tg-0lax"></td>
+            2
+            <td class="tg-0lax"></td>
+            3
+            <td class="tg-0lax"></td>
+            4
+          </tr>
+          <tr>
+            <td class="tg-0lax"></td>
+            <td class="tg-0lax"></td>
+            <td class="tg-0lax"></td>
+            <td class="tg-0lax"></td>
+          </tr>
+        </tbody>
+        </table>
+</body>
+<script type = "text/javascript" src = "Survey.js">
+</script>
+<script>
+
+    if (confirm("창 띄울꺼야?")){
+        confirm("yes? or no?")
+        alert("alert! alert!")
+        prompt("input prompt")
         let word = prompt("a랑 b머여", "")
         console.log(typeof(word), word, "word")
         let arr = word.split(",")
@@ -30,7 +77,7 @@
 
         let result_Q = (a+b < 4) ? 'under' : "over";
         alert(result_Q)        
+    };
 
-    </script>
-</body>
+</script>
 </html>

@@ -1,0 +1,202 @@
+@charset "UTF-8";
+
+body {
+	
+}
+
+.admin-header-menu:hover .dropdown-menu {
+	display: block;
+}
+
+.d-inline-block.dropdown:hover .dropdown-menu.dropdown-menu-right {
+	display: block;
+}
+
+.dialog_line_input {
+	min-height: 0.3em;
+	margin-top: 7px;
+	margin-bottom: 5px;
+    align-items: baseline;
+}
+
+.dialog_line_input_title {
+	width: 150px;
+	vertical-align: -10px;
+	float: left;
+	display: inline-block;
+    align-items: baseline;
+}
+
+.dialog_line_input_content {
+	width: 500px;
+	vertical-align: -10px;
+	display: inline-block; /* display, jus, ali 추가 */ 
+    align-items: baseline;
+	
+}
+
+#dialog_create_survey .dialog_line_input_content {
+	width: 500px;
+	vertical-align: -10px;
+	display: inline-flex !important;  /* display, jus, ali 추가 */ 
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.dialog_line_input_content.radio_btns {
+    display: inline-block;
+    justify-content: flex-start !important;
+}
+
+/*생성되는 보기문항 박스들 */
+#dialog_answer_box .dialog_line_input_content{
+	min-width: 25em;
+	display: inline-flex;
+}
+
+
+.dialog_line_input_content .form-control {
+    flex: auto;
+    
+}
+
+
+/* Custom Select wrapper */
+.select {
+	position: relative;
+	display: flex;
+	min-width: 180px;
+	height: 3.1em;
+	border-radius: .25em;
+	overflow: hidden;
+}
+/* Arrow */
+.select::after {
+	content: '\25BC';
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 1em;
+	background-color: #34495e;
+	transition: .25s all ease;
+	pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+	color: #f39c12;
+}
+
+#dialog_input_survey_content{
+	width: 100px;
+	height: 45px;
+}
+.ui-datepicker, #ui-datepicker-div{z-index: 999 !important};
+
+
+/* Radio - margin값 조정중 */
+.btn_choose_sent input {
+  -webkit-appearance: none;
+  display: block;
+  margin: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+  background-color: hsla(0,0%,0%,.2);
+      background-image: -webkit-radial-gradient( #fff 0%, #fff 15%, #fff 28%, #fff 70% );
+  background-repeat: no-repeat;
+  -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+    -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+  outline: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    top: 2px;
+}
+.btn_choose_sent input:checked {
+  -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+    -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+}
+.btn_choose_sent input:active {
+  -webkit-transform: scale(1.5);
+  -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+}
+
+/* The up/down direction logic */
+
+.btn_choose_sent input,
+.btn_choose_sent input:active {
+  background-position: 0 24px;
+}
+.btn_choose_sent input:checked {
+  background-position: 0 0;
+}
+.btn_choose_sent input:checked ~ input,
+ .btn_choose_sent input:checked ~ input:active {
+  background-position: 0 -24px;
+}
+.btn_choose_sent{
+	background: #f8f8f8;
+    color: #344374;
+    box-shadow: 0 3px 3px rgba(125, 147, 178, .3);
+    border: none; 
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 10px;
+    padding:  12px 20px 12px 20px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 20px;
+    transition: all .3s;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    vertical-align: middle
+}
+.btn_choose_sent input:after{
+
+    width: 12rem;
+    left: 0;
+    right: 0;
+    /* background: red; */
+    /* z-index: -1; */
+    height: 40px;
+    top: -10px;}
+
+/* 버튼 color 수정중 style
+.bg_btn_chose_1{
+	background-color: #E3CEF6 !important;
+}
+.bg_btn_chose_2{
+	background-color: #E3CEF6 !important;
+}
+*/
+
+.bg_btn_chose_3{
+	background-color: #359dcc !important;
+}
+
+.btn_choose_sent_check_b{
+	  background: #EF2D56;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(125, 147, 178, .3);
+    border: none; 
+     border-radius: 3px;
+    font-size: 16px;
+    line-height: 10px;
+    padding:  14px 20px 14px 38px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 30px;
+    transition: all .3s;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}

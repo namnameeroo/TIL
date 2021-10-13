@@ -1,0 +1,410 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<div class="app-main__outer">
+
+
+	<div class="app-main__inner">
+
+		<div class="app-page-title">
+			<div class="page-title-wrapper">
+				<div class="page-title-heading">
+					<div class="page-title-icon">
+						<i class="fa fa-smile" style="color: lightblue;"></i>
+					</div>
+					<div>
+						내 설문
+						<div class="page-title-subheading">my Survey</div>
+					</div>
+				</div>
+				<div class="page-title-actions">
+					<button type="button" data-toggle="tooltip" title="Example Tooltip"
+						data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+						<i class="fa fa-star"></i>
+					</button>
+					<div class="d-inline-block dropdown">
+						<button type="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+							class="btn-shadow dropdown-toggle btn btn-info">
+							<span class="btn-icon-wrapper pr-2 opacity-7"> <i
+								class="fa fa-business-time fa-w-20"></i>
+							</span> Buttons
+						</button>
+						<div tabindex="-1" role="menu" aria-hidden="true"
+							class="dropdown-menu dropdown-menu-right">
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link"
+									id="btn_create_survey"> <i class="nav-link-icon lnr-inbox"></i>
+										<span>설문 생성</span>
+										<div id="div_poll_count"
+											class="ml-auto badge badge-pill badge-secondary"></div>
+								</a></li>
+								<li class="nav-item"><a class="nav-link"
+									id="btn_create_question"> <i class="nav-link-icon lnr-book"></i>
+										<span> 질문 생성</span>
+										<div id="div_question_count"
+											class="ml-auto badge badge-pill badge-danger"></div>
+								</a></li>
+								<li class="nav-item"><a class="nav-link" id="btn_delete">
+										<i class="nav-link-icon lnr-picture"></i> <span> 삭제</span>
+								</a></li>
+								<li class="nav-item"><a disabled=""
+									class="nav-link disabled1" id="btn_close_window"> <i
+										class="nav-link-icon lnr-file-empty"></i> <span> 퇴근 </span>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 설문 파트 -->
+		<div class="card mb-3"
+			style="width: 47%; height: 700px; display: inline-block; overflow: auto;">
+			<div class="card-header-tab card-header">
+				<div
+					class="card-header-title font-size-lg text-capitalize font-weight-normal">
+					<i class="header-icon text-muted opacity-6 fa fa-list-alt"> </i>Survey
+					List
+				</div>
+				<div class="btn-actions-pane-right actions-icon-btn">
+					<div class="btn-group dropdown">
+						<button type="button" id="btn_create_survey2"
+							class="btn-icon btn-icon-only btn btn-link">
+							<i class="btn-icon-wrapper fa fa-plus-circle"
+								style="color: dodgerblue; font-size: 2em; cursor: pointer;"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<table style="width: 100%;" id="table_mysurvey"
+					class="table table-hover table-striped table-bordered">
+					<thead>
+						<tr>
+							<th></th>
+							<th>설문명</th>
+							<th>타입</th>
+							<th>응답인원</th>
+							<th>등록자</th>
+							<th>부서</th>
+							<th>사용기간</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div style="width: 5%; display: inline-block; height: 700px;">
+			<div class="arrow-container">
+				<span class="arrow-circle"> <i class="arrow-fa">⇃</i>
+				</span> <span class="arrow-pulse"></span>
+			</div>
+		</div>
+
+		<!-- 질문 파트 -->
+		<div class="card mb-3"
+			style="width: 47%; height: 700px; display: inline-block; overflow: auto;">
+			<div class="card-header-tab card-header">
+				<div
+					class="card-header-title font-size-lg text-capitalize font-weight-normal">
+					<i class="header-icon text-muted opacity-6 fa fa-tasks"> </i>Question
+					List
+				</div>
+				<div class="btn-actions-pane-right actions-icon-btn">
+					<div class="btn-group dropdown">
+						<button type="button" id="btn_create_question2"
+							class="btn-icon btn-icon-only btn btn-link">
+							<i class="btn-icon-wrapper fa fa-plus-circle"
+								style="color: dodgerblue; font-size: 2em; cursor: pointer;"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="card-body" style="">
+				<table style="width: 100%;" id="table_myquestion"
+					class="table table-hover table-striped table-bordered">
+					<thead>
+						<tr>
+							<th></th>
+							<th>타입</th>
+							<th>내용</th>
+							<th>옵션</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<div id="dialog_create_survey" title="dialog_create_survey"
+	style='display: none; z-index: 9999;'>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">설문종류</div>
+		<div class="dialog_line_input_content">
+			<select class="select form-control" id="dialog_input_survey_type">
+				<option value=1>질문형</option>
+				<option value=2>토너먼트</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">설문명</div>
+		<div class="dialog_line_input_content">
+			<input id="dialog_input_survey_name" title='설문명은 필수입니다.'
+				class="form-control" required>
+		</div>
+	</div>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">설문주최</div>
+		<div class="dialog_line_input_content">
+			<input id="dialog_input_survey_hostgroup"
+				title='설문주최를 입력해주세요.(미입력시 성동구도시관리공단으로 입력됩니다)' class="form-control">
+		</div>
+	</div>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">설문내용</div>
+		<div class="dialog_line_input_content">
+			<textarea id="dialog_input_survey_content" rows="50" cols="40"
+				style="width: 500px; height: 50px;" class="form-control"></textarea>
+		</div>
+	</div>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">참여인원수</div>
+		<div class="dialog_line_input_content">
+			<input id="dialog_input_survey_size" title='참여인원수를 입력해주세요.'
+				class="form-control">
+		</div>
+	</div>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">설문기간</div>
+		<div class="dialog_line_input_content">
+			<!-- <input id=”dialog_input_survey_startdate”  title='참여인원수를 입력해주세요.' class="form-control">
+			<input type="text" id=”dialog_input_survey_enddate”  title='참여인원수를 입력해주세요.'>  -->
+
+			<div class="form-group" style="display: inline-block; width: 40%">
+				<div class="input-group date">
+					<input id="dialog_input_survey_start" type="text" value="  "
+						class="form-control" required="">
+				</div>
+			</div>
+
+			<div style="display: inline-block; width: 5%; text-align: center">
+				~</div>
+
+			<div class="form-group" style="display: inline-block; width: 40%">
+				<div class="input-group date">
+					<input id="dialog_input_survey_end" type="text" value="  "
+						class="form-control" required="">
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="dialog_line_input ">
+		<div class="dialog_line_input_title">공개설정</div>
+		<div class="dialog_line_input_content radio_btns">
+			<label for="is_public">
+				<button type="button" class="btn_choose_sent bg_btn_chose_1"
+					style="text-align: center;">
+					<input type="radio" id="is_public" value="true"
+						name="btn_choose_sent" checked>&nbsp;공개
+				</button>
+			</label> <label for="is_private">
+				<button type="button" class="btn_choose_sent bg_btn_chose_2"
+					style="text-align: center;">
+					<input type="radio" id="private" value="false"
+						name="btn_choose_sent">&nbsp;비공개
+				</button>
+			</label>
+
+
+			<!-- 
+			<label> <input type="radio" name="is_public"
+				id="dialog_input_survey_public" value="true" checked /> 공개
+			</label> <label for="dialog_input_survey_private"> <input
+				type="radio" name="is_private" id="dialog_input_survey_private" />
+				비공개
+			</label>
+			-->
+		</div>
+	</div>
+
+
+	<div class="dialog_line_input">
+		<div id="dialog_linkedanswer_box" class="card-body"
+			style="width: 670px; height: 350px; overflow: auto;">
+			<table style="width: 100%;" id="table_mylinkedanswer"
+				class="table table-hover table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>내용</th>
+						<th>타입</th>
+						<th>삭제</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="dialog_line_input"
+		style="text-align: center; padding: 7px;">
+		<button id="btn_send_create_survey" type="button" aria-haspopup="true"
+			aria-expanded="false" class="btn-shadow btn btn-info"
+			style="width: 100px; padding: 8px; margin: 0 3px;">확인</button>
+		<button id="btn_close_survey" type="button" aria-haspopup="true"
+			aria-expanded="false" class="btn-shadow btn btn-info"
+			style="width: 100px; padding: 8px; margin: 0 3px;">취소</button>
+	</div>
+
+</div>
+
+<div id="dialog_create_question" title="dialog_create_question"
+	style='display: none'>
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">질문종류</div>
+		<div class="dialog_line_input_content">
+			<select class="select form-control" id="dialog_input_question_type">
+				<option selected disabled="disabled" value=0 selected="selected">질문
+					종류를 선택하세요.</option>
+				<option value=1>단답형</option>
+				<option value=2>복수형_다중선택</option>
+				<option value=3>복수형_단일선택</option>
+				<option value=4>순위형</option>
+				<option value=5>파일첨부형</option>
+				<option value=6>날짜형</option>
+				<option value=7>시간형</option>
+			</select>
+		</div>
+	</div>
+
+	<!--  <button type='reset'>작성 초기화(reset)</button> -->
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title">질문</div>
+		<div class="dialog_line_input_content">
+			<input id="dialog_input_question_name" title='질문을 입력해주세요.'
+				class="form-control" required>
+		</div>
+	</div>
+
+
+
+	<!-- 보기유형 : (기본형), 날짜형, 시간형, 그 외  -->
+	<div class="dialog_line_input" id="dialog_input_question_answer_box"
+		style="display: none">
+		<div class="dialog_line_input_title">보기</div>
+		<div class="dialog_line_input_content">
+			<button id="btn_add_answer" type="button"
+				class="btn-shadow btn btn-info"
+				style="width: 30px; height: 30px; padding: 3px; margin: 0 3px;";>+
+			</button>
+		</div>
+	</div>
+
+	<div id="dialog_answer_box"></div>
+
+
+	<div class="dialog_line_input"
+		id="dialog_input_question_answer_date_box" style="display: none">
+		<div class="dialog_line_input_title">선택 범위</div>
+		<div class="dialog_line_input_content">
+
+			<div class="form-group" style="display: inline-block; width: 40%">
+				<div class="input-group date">
+					<input id="dialog_input_question_start" type="text" value="  "
+						class="form-control" required="">
+				</div>
+			</div>
+
+			<div style="display: inline-block; width: 5%; text-align: center">
+				~</div>
+
+			<div class="form-group" style="display: inline-block; width: 40%">
+				<div class="input-group date">
+					<input id="dialog_input_question_end" type="text" value="  "
+						class="form-control" required="">
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+	<div class="dialog_line_input"
+		style="text-align: center; padding: 7px;">
+		<button id="btn_send_create_question" type="submit"
+			aria-haspopup="true" aria-expanded="false"
+			class="btn-shadow btn btn-info"
+			style="width: 100px; padding: 8px; margin: 0 3px;">확인</button>
+		<button id="btn_close_question" type="button" aria-haspopup="true"
+			aria-expanded="false" class="btn-shadow btn btn-info"
+			style="width: 100px; padding: 8px; margin: 0 3px;">취소</button>
+	</div>
+
+</div>
+
+
+<div id="dialog_create_linkedanswerx" title="dialog_create_linkedanswer"
+	style='display: none'>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_content"></div>
+	</div>
+
+	<div class="dialog_line_input">
+		<div class="dialog_line_input_title"></div>
+		<div class="dialog_line_input_content">
+			<input id="               "
+				title='                                  ' class="form-control">
+		</div>
+	</div>
+
+	<div id="dialog_linkedanswer_boxx">Answer Wrapper</div>
+
+
+	<div class="dialog_line_input"
+		style="text-align: center; padding: 7px;">
+		<button id="              " type="button" aria-haspopup="true"
+			aria-expanded="false" class="btn-shadow btn btn-info"
+			style="width: 100px; padding: 8px; margin: 0 3px;">확인</button>
+		<button id="                    " type="button" aria-haspopup="true"
+			aria-expanded="false" class="btn-shadow btn btn-info"
+			style="width: 100px; padding: 8px; margin: 0 3px;">취소</button>
+	</div>
+
+</div>
+
+<!-- <script type="text/javascript" src="../resource/js/extern/jquery-ui-timepicker-addon.min.js"></script> -->
+<script type="text/javascript"
+	src="../resource/js/extern/jquery-ui-timepicker-addon.min.js"></script>
+<script type="text/javascript"
+	src="../resource/js/admin/createsurvey.js"></script>
