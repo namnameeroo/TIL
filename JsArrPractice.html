@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>practice is the salgil</h1>
+<p id="demo"></p>
+<button id = "pushBtn"></button>
+
+
+<script type="text/javascript">
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars;
+document.getElementById("pushBtn").innerHTML = cars;
+let arrLst = [];
+console.log(arrLst)
+
+
+document.querySelector("#pushBtn").addEventListener("click",function(e){
+    if (arrLst == []){
+        document.getElementById("pushBtn").innerHTML = (arrLst.length==0) ? cars : arrLst ;
+        
+    } else {
+        console.log(arrLst)
+        arrLst.push("1")
+        arrLst.push("2")
+        arrLst.push("3")
+        arrLst.push("4")
+        arrLst.push("5")
+
+    }
+    console.log(arrLst)
+    // let btn = document.querySelectorAll("#pushBtn")
+    
+    document.querySelector("#pushBtn").innerHTML = arrLst;
+    console.log(arrLst)
+
+}(arrLst))
+</script>
+
+</body>
+</html>
+
