@@ -31,7 +31,7 @@ function submitEvent(data){
 				for (j=0; j < as.length; j++){
 					input_cheked = document.querySelector('input#'+q_num+'_' + (j+1) + ':checked');
 					if (!input_cheked) {
-						continue
+						continue 
 						
 					} else {
 						user_input = (user_input=='') ? as[j].number : user_input + "," + as[j].number;
