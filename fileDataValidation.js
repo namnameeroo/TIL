@@ -12,5 +12,11 @@ form.appendChild(newInputLine)
 
 
 // 🇰🇷🤪🤪🤪
-// 2. js 파일의 스
+// 2. data를 넘길 때 유효성 검사
+
+let clickInput = document.querySelector('#file-input')
+clickInput.addEventListener("click", function(e) => {
+                         
+                         
+                         })
 
