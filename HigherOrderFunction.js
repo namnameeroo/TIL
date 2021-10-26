@@ -19,3 +19,16 @@ function love(i) {
     return sentence
 }
 minsu(hansu);
+
+
+// 연습 4
+num = 0;
+const funcName = () => () => () => {
+    return num += 1;
+}
+
+const first = funcName(1)
+const sec = first(1)
+const thir = sec(1)
+
+num // num = 1
