@@ -1,0 +1,18 @@
+// 포인트 : 몇줄까지 보여줄지 정하고, 그 높이에 맞춰서 박스 높이를 잘라줘야함,
+// text-align 있어야 말줄임표 위치가 정확해짐
+
+td.long-text {
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis; // ... 자동생성
+    white-space: normal;
+    line-height: 1.7rem;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    height: 7.4rem;
+    min-inline-size: fit-content;
+    border: none;
+}
