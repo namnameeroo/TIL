@@ -1,0 +1,742 @@
+1.설문지 서버 들어가기
+    (1). 이클립스 키고
+    (2). http://localhost:8080/login.do 
+          http://192.168.101.22/login.do
+(아니면 포트번호 생략가능)
+
+2. DB 열기
+    (1). pg admin
+
+3. SVN 위치 (update 하고 시작 ++ 커밋전에도 해야)
+D:\Project\eGovFrameDev-3.9.0-64bit\workspace\zSurvey 
+
+4. CSS 총정리 사이트
+https://www.w3schools.com/cssref/css3_pr_align-items.asp
+
+5. 페이지 레이아웃
+https://www.figma.com/file/v6KhFMvkTjlK8f8gFVEx5p/성동구민종합체육센터?node-id=0%3A1
+
+
+211007 여기부터~
+1. 	// Questiontype에 따른 검증 필요 21-10-06
+      ** 문항 인덱스
+2.          Question Type 변수명 통일 (DB랑 주임님이랑 불일치)
+
+211008 마감
+1. 근데 왜 버튼 깜빡깜빡은 하는데 왜 안눌리지!
+
+211012
+1. 설문지 만드는 화면에 필수문항 체크 컬럼생성
+2. 필수문항 체크 기능은 Question 삭제 버튼 만들고 나서
+https://stackoverflow.com/questions/54345856/checking-checkbox-using-label-in-tr
+
+https://www.it-gundan.com/ko/javascript/lttrgt-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%96%89%EC%97%90-%ED%95%98%EC%9D%B4%ED%8D%BC-%EB%A7%81%ED%81%AC%EB%A5%BC-%EC%B6%94%EA%B0%80%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/970335306/
+
+저거 모야 update q in poll 어떤 과정에 넣지
+3. checkbox 없애고 tr로 선택되도록 => css는 먹히는데 기능은 아직 안먹힘
+
+211013
+1. queryselector
+https://developer.mozilla.org/ko/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors
+2. getElement
+https://nowonbun.tistory.com/346
+3. css 키워드 색인
+https://developer.mozilla.org/ko/docs/Web/CSS/Reference
+4.  점심에 js이벤트 공부
+http://tcpschool.com/javascript/js_event_concept
+
+* 서버 연결하고 survey 접속하는 주소
+http://192.168.101.22/login.do
+
+5. (질문list)
+- 삭제 버튼 구현하고 탭 설계 html
+
+- data 변수에 할당받는 부분이 어딘지.
+- poll이랑 survey 구분해야함?
+
+211014
+1. [삭제 버튼] 프론트단 코드 정리 (아직 기능은 못함)
+2. [삭제 버튼] survey랑 question 모두 적용
+2.1 survey 수정 및 삭제 버튼 여백 없애기
+3. 새로운 페이지 기획
+4. 설문응답(모바일환경) 페이지 개선
+   - 빨간버튼 : 설명 필요
+   - 문의번호 같은거 바로 표시되면 좋을듯
+   - 이메일말고 전화번호로
+   - 사진들어가는 문항은 필요없나
+   - 형식이 미국식, 언어도 영어라 불편하겠다
+
+
+-서버수정 by 주임님 (파일경로)
+D:\Project\eGovFrameDev-3.9.0-64bit\workspace\zSurvey\src\main\webapp\resource\js
+
+
+- 공부한거 정리
+   => eventListener
+   => document.getEle~
+   => aJax
+   => event
+- github이나 notion 정리
+
+211015
+dialog_input_question_answer_dialog_input_question_answer_dialog_input_question_answer_- update Table에 class 초기화(selected) 기능 추가 
+     => data에 들어가버리는 건지, 불러올때 그러는건지,...
+- ajax 요청 모듈화 (후순위) // 아직 public false로 넘어가는거 해결안됨
+- 업무일지 총정리 필요
+- 설문내용 표에서 볼때 데이터 잘라서 표시해야함
+- update할때 poll이랑 question 정렬 마지막업데이트 혹은 생성일 기준으로
+- button 추가 기능
+- submit버튼은 문항만드는 돔에서 type = -1 로 해서 넘겨부러
+- 스크롤 고정영역 있으면 좋을 듯
+  https://abcdqbbq.tistory.com/91
+- 열선택 영역에서 버튼제외 (혹은 창 닫았을 때 초기화)
+- 설문 업데이트시 업데이트 날짜 잘못 불러옴, 초분 단위 잘못읽는듯, DB에 저장할 때 time 스탬프 형식 조정 필요
+
+div {
+    display: block;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    min-width: 28rem;
+}
+
+- icon file load 경로 수정 필요 admin 안에 assets 폴더가 ㅏ예없음 <"D:\Project\eGovFrameDev-3.9.0-64bit\workspace\zSurvey\src\main\webapp\resource\css\admin"> 여기 안에 있어야 함
+=> 폰트 설정 전부 삭제
+http://localhost:8080/admin/assets/images/avatars/3.jpg
+http://localhost:8080/resource/css/admin/assets/fonts/fa-solid-900.woff 
+http://localhost:8080/resource/css/admin/assets/fonts/fa-solid-900.woff 40
+
+생성된 설문지 main.jsp 위치
+D:\Project\eGovFrameDev-3.9.0-64bit\workspace\zSurvey
+\src
+\main\webapp\WEB-INF\jsp\survey
+연결된 js위치
+../resource/js/survey/survey.js
+=> 같은거 절대경로
+D:\Project\eGovFrameDev-3.9.0-64bit\workspace\zSurvey\src\main\webapp
+\resource\js\survey\survey.js
+
+=> fontAwesome 위치
+../resource/css/extern/font-awesome.css 
+
+---------------------------------------  survey 로드된 설문페이지
+211018
+1. survey 페이지 완성 !!내일까지!!
+ - survey 순위형 => 일단완인데 맘에 안듬 ㅎㅎㅎㅎㅎㅎ
+ - survey 체크박스
+ - survey 라디오
+ - 푸터에 생활체육팀 문의번호/열린체육팀 문의번호/행복체육팀 문의번호 >> 관련 컬럼이나 테이블 있으면 좋을 듯
+- 공단색상 : #1C85FF  #30D4FF
+- background: linear-gradient(to right, blue, pink)
+background: linear-gradient(to right, #33d4ff, #39ACCA);
+background: linear-gradient(to right, #33d4ff, #ed62e3);
+#ed62e3
+기존 테마 컬러#26a69a =>287db9 98d1fb
+form:focus-within {
+  background: #ff8;
+  color: black;
+}
+
+#a7ffeb 기존형광 파랑
+<<<색변경>>>
+블랙 (rgba로 찾아)
+.ctrlqFormContent
+#292727de
+
+필수문항, 
+웬만하면 이번주까지 끝내야하고,
+https://codepen.io/danielhamilton/pen/pedbwZhttps://codepen.io/danielhamilton/pen/pedbwZhttps://codepen.io/danielhamilton/pen/pedbwZhttps://codepen.io/danielhamilton/pen/pedbwZ
+https://codepen.io/danielhamilton/pen/pedbwZhttps://codepen.io/danielhamilton/pen/pedbwZhttps://codepen.io/danielhamilton/pen/pedbwZhttps://codepen.io/danielhamilton/pen/pedbwZ
+
+화면 기준 : 720 × 1280       9:16
+- 푸터 or 맨밑 영역 필요
+submit 버튼 앞뒤루 margin 넣음
+button.waves-effect.waves-light.btn-large {
+    margin-bottom: 34px;
+    margin-top: 2rem;
+}
+
+
+form-checker (라디오랑 체크박스 유효성 검사해서 글자 올리기)
+p id = Question (단답형이랑 통일감있게 구성)
+
+
+- 순위형 문항 화면표시
+    1. 라디오 + 테이블 형태 (보편적이나 n*n 형태임,,)
+    2. 문항 순서 수정할 때처럼 드래그앤드랍
+    3. 순서대로 눌러서 정렬 결과 보여주기 :: 
+
+>> 그 모냐 이거 숫자 html에서 다시 글자로 표현해야함
+#3ac47d
+=> #3ac47d54
+
+$('p').remove();
+변수명 수정
+종류 선택시 태그 초기화
+
+질문 종류 : 
+questionType : 
+1 단답형 = short_question
+2 복수형_다중선택 = multiple_question_check
+3 복수형_단일선택 = multiple_question_radio
+4 순위형 = ranking_question
+5 파일첨부형 = file_question
+6 날짜형 = date_question
+7 시간형 = time_question
+
+
+
+변수명
+poll => 설문
+question => 문항
+answer => 보기
+** 보기 인덱스를 HTML에 표시해야할까? => 답변 취합할 때 쉬운가?
+
+주의 : 단답형은 옵션없고, 복수형은 - 라디오, 쳌밬으로 나눠서 구분해서 대답 보내야돼. 
+         순위형은 그대로, 파일은 입력값 검증?, 날짜는 범위로,
+           시간은 후순위
+
+[create Survey, create Question] css 레이아웃 수정
+
+라디오 버튼이름
+btn_choose_sent => radio_input_survey_privacy
+
+라디오 값 가져오기
+let isPublic= document.querySelector("#dialog_input_survey_public").checked;
+
+=> let isPublic = $('input:radio[name="radio_input_survey_privacy"]:checked').val();
+
+=> let isPublic = $('input:radio[name="radio_input_survey_privacy"]').is(':checked')
+//값없이 그냥 불리언으로 가져오기
+
+
+
+
+211020 마감
+__ 내일 여기서부터
+제출버튼 임의의 값넘어가는거 확인->
+keyword: surveydo? search들어가면 있음
+-> 버튼 가운데 정렬 확인
+-> 달력 색 바꿔봐... 성동구청 파라에 셰도우인 넣으면 댈듯
+
+
+211020
+<한일> : 응답화면 제출버튼 기능구현 (문항생성  dom id 수정, 입력값 가져옴)
+<발견> : DB 입력값 누락 확인
+
+
+211025
+<FILE 영원히 오류 ㅎㅎㅎㅎㅎㅎㅎ> => 왜인지 오류메시지 건드리니까 해결
+ajax결과값 반환하는거 영원히 안되는중
+submit 하고 창 닫는거도 영원히 안되는중 ㅎㅗ
+다지선다 유형 보기 없으면 오류메시지 띄움
+
+as 만지다가 끔 
+
+211026
+문항(Question) required 필요
+글자수 제한
+document 지정안하면 맨 위에 파일만 읽히지 않나
+
+promise DB저장ㅇ부분 OR file upload 부분 프로미스 적용중
+file upload만 했을 때는 upload는됐었는데, db가 안됐고
+DB저장 부분만 하는 걸 바꿨을 때는 upload가 안됨(해결_211028)
+
+211028
+문항 삭제 (valid update할때 create도 변경됨)
+삭제한 문항 설문 connect에 입력된거 삭제되도록
+
+20211029
+[new tab]TABLE 돔 생성 OK, 새로운 ajax request (api, sql)생성중
+TABLE 돔 생성 OK
+data 호출 + 함수 연결 수정필요
+새로운 ajax request (api)생성중
+SQL문에 vote merge의미가 안살고 있어서 counting 손봐야 함
+(기준: poll_id, group by랑 where poll_id)
+(집계: vote cnt)
+dialog_에 왜 안들어가니
+https://kuzuro.blogspot.com/2018/09/blog-post.html
+
+
+20211101
+poll.java 파일에 poll.vo 정의할 때
+ string d_day; 입력하고 alt+shift+s 해서 generate getter setter
+체크해서 확인 누르면 	
+public String getD_day() {
+		return d_day;
+	}
+	public void setD_day(String d_day) {
+		this.d_day = d_day;
+	}
+
+자동생성
+
+https://codepen.io/ksykes/pen/mwbZeL
+마감 : CHART 그리기. 하는중
+>> 1. POLL 별로 Q LIST 가져오기
+>> 2. Q 별로 VOTE 가져오기
+>> 3. + 집계
+>> 4. 차트 그리기
+>> 별도 API 필요할듯?
+
+응답상세 : 
+https://codepen.io/alishera/pen/RBrXem
+
+
+20211102
+admin_poll_SQL.xml
+_voteVO, sql 수정중
+pollController.java 에 
+getSurveyByMemberAndPollId 사용하고
+getVoteByPollId 사용해야 (sql이름이자 메서드 이름)
+
+=> 내일 커밋!
+
+
+20211103
+vote list 가져오기 성공
+이거를 question에 매핑해줘야돼
+quesiton.vote
+완성된 
+
+흐어 전면수정....
+오늘도 화이팅
+
+20211104
+vote list 가져오기
+kakao api 요청 해보기
+vote content 입력방식 수정
+dialog_vote_detail_chart
+dialog_vote_detail_table
+
+
+20211108
+촬영도와드림
+DATA GRID 그리다가 끝남
+
+20211109
+DATA 형식 조정
+ajax pollID로 요청하는거 완료
+두개 엮어서 formatted 산출해야
+
+voteList
+https://codebeautify.org/jsonviewer/cb6d9dce
+qList
+https://codebeautify.org/jsonviewer/cbf9b782
+
+lazy load
+https://helloinyong.tistory.com/297
+메서드 추가와 배열 추가
+https://improver.tistory.com/574
+
+실행취소 : ctrl z
+실행취소 복원 redo: ctrl y
+
+jq grid
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=weekamp&logNo=221029088671
+
+211110
+카카오 템플릿 생성후 검토요청
+phone num 변수로
+
+
+211111 할수 이따 아작아작
+대량데이터 전송
+전송후 반환값 저장
+URL 프로퍼티에 넣고 변수로
+https://bamdule.tistory.com/131
+https://ktko.tistory.com/129
+
+객체생성
+https://admm.tistory.com/47
+
+json gen
+http://www.objgen.com/json
+
+[] 집에서 해볼 거 : ajax 요청 두개 끝나고 그거로 데이터 형식바꿀건데 그거 어떻게구현할거니
+
+노션에 안 적음
+https://sarc.io/index.php/java/2137-httpurlconnection-rest-api-json
+
+https://kim-jong-hyun.tistory.com/29
+
+https://limdevbasic.tistory.com/14
+
+211112
+sv0001 템플릿에 폼수정해서 검수요청함
+- data 개수 30개 이상인 거 기준으로 보낼때 처리
+- 전송은 어디서 할거야
+- excel 업로드한거 읽고 처리(FORM- morgetda)
+
+- excel extern 파일 가져오기 
+- template 별도로 안해도 대나
+
+
+- 
+- 
+
+
+211115
+- grid data 1차 완=> 근데매핑... 홀리...
+- unvalid question을 poll에서 삭제하는 api 생성중 _ updateConnectInPoll
+- question type 에 따른 매핑
+  __2복수형C__3복수형R__4순위형_
+https://www.w3schools.com/tags/att_input_autofocus.asp
+https://mine-it-record.tistory.com/290
+https://mine-it-record.tistory.com/291?category=1106354
+
+
+순위형 input data 형식 조정
+vote mapping
+
+211116
+- jqGrid 집에서 한번 써봐라...
+- jqGrid 버전 변경해..
+https://cdnjs.com/libraries/free-jqgrid
+https://javafactory.tistory.com/1161
+
+- https://www.py4u.net/discuss/913316
+- https://coderedirect.com/questions/314585/reload-does-not-work >>>>>이미해봤는데 안대
+https://stackoverflow.com/questions/2978523/jqgrid-refreshing-local-data-json-object
+http://jsfiddle.net/8DYD8/1/
+
+// js zip extern 파일생성
+https://www.guriddo.net/documentation/guriddo/javascript/user-guide/exporting/#export-to-excel
+
+211122
+chart dom 
+q type ==2 인 애들만 일단 차트 그리고
+chart type  = bar, pie 등등 옵션 붙이기 select form
+
+grid image는 다운로드 걸기
+chart table 완
+
+211123
+q유형별로 기능 나눠야함 (table은 공통생성?!)
+q type select box 생성해야하고
+chart type update 기능 마저 완성해야
+table위치 조정 ;ㅅ;
+차트 컬러
+https://jsfiddle.net/connyake/uneL3u9g/
+차트 export
+https://quickchart.io/documentation/chart-js/image-export/
+
+
+select form 위치 조정 해야함 ㅠ
+마이페이지 생성 > 집가서 해보ㅓㄴ다... 화면,.. html이랑 기능..
+https://mine-it-record.tistory.com/266 => 소수점 자리
+
+211124
+
+https://www.epubguide.net/57
+제목 css모음
+
+순위형 -> 가중치 점수주고 집계 한거랑
+            -> STACK 그래프랑
+
+이름정하기
+서비스 전반 수정
+마이페이지
+
+찌꼬미 박스 어쩔거닝~
+#chartContainer.form-control{
+width: fit-content;}
+
+
+// 헤더 부분 사이즈 조정 $(".ui-jqgrid-labels > th:eq(3)").css("width", "515px"); // 컬럼 부분 사이즈 조정 $("#tbList tr").find("td:eq(3)").each(function () { $(this).css("width", "515px"); })
+
+출처: https://hwoarang757.tistory.com/entry/JQuery-JQGrid-동적으로-컬럼-width-넓이-조정-하기 [실패하면 일어서서 다시 전진 하면 된다!!!!!!!!!!!!!]
+
+211125
+서버 생성중 for my page
+정보 조회랑 정보 업데이트 기능 필요 
+
+https://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/extra.html#jqgrid
+
+https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=jaeik714&logNo=140183804878&redirect=Dlog&widgetTypeCall=true&directAccess=false
+
+https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=roropoly1&logNo=221125289874&categoryNo=22&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jaeik714&logNo=140197196541
+
+
+전체 스크롤바 스타일 수정
+ 스크롤바 ㅙ 안없어지니
+ 내정보 조회
+
+http://trirand.com/blog/jqgrid/jqgrid.html#
+211126
+
+병렬일때 (min-1200)
+.mb-3-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+한줄일때 (max 990
+.mb-3-container {
+    display: flex;
+    flex-direction: column;
+}
+
+211129
+설문 진행에 따라 화면 스크롤 조정
+
+.form-control {
+    display: block;
+    width: 100%;
+    _height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.8;
+    height: 3.1em
+	color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+=================
+class="lnr lnr-chevron-down
+pe-7s-settings << 클래스 삭제
+==================
+
+
+.card-area {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 3rem;
+}
+/* 
+style="width: 47%; height: 700px; display: inline-block; overflow: auto;
+ */
+
+.info-table .btn_info {
+    border: 0 none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 9px;
+    
+    font-size: 0.8rem;
+    color: #da2a21;
+    text-decoration: underline;
+}
+
+resource\css\admin\main
+resource\images
+
+dash >> input box 안에 버튼 추가, value 초기화
+
+문의번호 db 어떻게 할건지
+
+https://codepen.io/Diavolo/pen/ZOeQvO
+table2excel 참고
+
+pager
+
+
+/////max991.98
+.app-sidebar {
+    /* flex: 0 0 280px !important; */
+    width: 280px !important;
+    transform: translateX(-280px);
+    position: fixed;
+}
+.app-sidebar {
+    width: 280px;
+    display: flex;
+    z-index: 11;
+    overflow: hidden;
+    min-width: 280px;
+    /* position: relative; */
+    flex: 0 0 280px;
+    margin-top: -60px;
+    padding-top: 60px;
+    transition: all .2s;
+}
+
+
+src\main\webapp\resource\css\admin
+src\main\webapp\resource\images
+
+211202
+https://linearicons.com/free
+chart mapping type == 1 했고,
+파일
+비번
+
+https://st-lab.tistory.com/100
+211202
+** (window.innerWidth-document.querySelector(".ui-dialog .ui-corner-all").parentNode.clientWidth)/2
+dia = document.querySelector(".ui-dialog .ui-corner-all").parentNode
+** form 높이 고정
+** top 공백
+
+
+
+차트 다운로드 버튼 (하나씩 or 일괄)
+mobile 수정 전송
+mobile 입력형식
+순위형 차트 테이블
+이미지 파일 선택시 다운로드
+비밀번호 암호화
+메인 색상 수정
+
+https://reumpang.tistory.com/143
+색상변경 참고
+
+	chart_variable.update({
+	      duration: 0
+	   });
+	   var link = document.createElement('a');
+	   link.href = chart_variable.toBase64Image();
+	   link.download = 'chart'+today2+'.png';
+	   link.click();
+	   chart_variable.options.title.text = 'Chart Title';
+	   chart_variable.update({
+	      duration: 0
+	});
+차트 범례
+https://codepen.io/k3no/pen/WGmVBr?editors=0010
+https://yeon22.github.io/Chartjs-kr/docs/latest/configuration/legend.html
+https://codepen.io/jordanwillis/pen/PpJjWK
+http://jsfiddle.net/phpdeveloperrahul/dypq0u9z/9/
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=hicooli&logNo=221728638025
+
+https://dev.to/giselamd/creating-a-custom-chart-js-legend-style-50i5
+https://stackoverflow.com/questions/46381231/chart-js-legend-customization
+
+차트 스택
+https://snepbnt.tistory.com/486
+
+
+차트 다운
+
+<a href="/images/myw3schoolsimage.jpg" download>
+  <img src="/images/myw3schoolsimage.jpg" alt="W3Schools" width="104" height="142">
+</a>
+
+https://www.fwait.com/how-to-download-image-on-button-click-using-javascript/
+
+https://dev.to/noemelo/how-to-save-chart-as-image-chart-js-2l0i
+
+https://okky.kr/article/778139
+
+cntArr={};
+mapper.map(function(cntArr,f){cntArr[mapper[f]]=0};
+
+for (i of qv) {
+    for (j in i){
+        
+}
+}
+
+mapper = qa.map(function(obj, i){var robj = {}; robj[qa[i].content] = 0; return robj})
+
+1203 마감
+file  = chart에 어떻게 띄울거니
+config 중복 어떻게 지울거니
+
+1207 마감
+dash  : 채팅 admin 계정이랑 소통 어떻게?
+순위형 mapping ing
+'
+이미지 보여주기
+https://surpassing.tistory.com/692
+https://kuzuro.blogspot.com/2018/10/11.html
+https://antananarivo.tistory.com/63
+https://2kid.tistory.com/26
+
+1208 마감
+
+stack color
+https://m.blog.naver.com/khsmonad/221739938617
+http://daydreamingnumbers.com/blog/4-ways-to-visualize-likert-scales/
+https://stats.stackexchange.com/questions/152955/what-is-the-best-way-to-present-rank-survey-data#
+http://daydreamingnumbers.com/blog/4-ways-to-visualize-likert-scales/
+https://blog.datawrapper.de/weekly-chart-candy/
+
+stacked bar chart for rank questionaire
+1. 후순위 cnt => 음수 변환
+2. 중립 영역 (홀수면) => 반으로 쪼개서 음수 변환 2=> +1 과 -1
+3.  축 라벨 조정 cnt => 
+
+문항별 총계 => label order에 써라!
+
+
+
+일회성 문항 어떻게 할지 => 쑤레기 됨...
+문항 유형에 다회성 여부 (은행에 남길지 말지)
+완전삭제랑 다름
+
+튜토리얼 모드..? => 메시지창이 필요하지 않을까
+설문 잠금 기능? 마감 일자에 자동 마감?
+
+채팅창에 이름 떠야함 (발신자)
+채팅 입력란 ("입력 메시지는 관리자를 포함한 모두에게 공개됩니다.")
+
+
+문의번호 연결
+https://stackoverflow.com/questions/45820619/chart-js-stacked-bar-ordering-depending-on-value
+
+유튜브
+Charting Survey Results in Excel
+
+label
+https://www.chartjs.org/docs/3.3.1/axes/labelling.html
+https://www.youtube.com/watch?v=byjQKK7Vc1E
+
+
+.app-wrapper-footer .app-footer {
+    border-top: #e9ecef solid 1px;
+    position: static;
+}
+https://gurtn.tistory.com/78
+
+
+12 14
+채팅 null check 추가
+문의번호랑 팀명 통일
+password 랑
+이메일 
+다이얼로그
+
+카카오 전송 문의번호 >> 기본 =?
+contact POLL 에 추가
+
+host group 이랑
+getCenter 랑
+getServiceName 정해야함
+
+dash info 에 전송 건수 추가
+
+refresh poll삭제 
+
+12 15
+alaysis 이미지 다운로드 구현 => 웹에서 띄우는거로 가능하게 
+Login 비밀번호 hash 적용 => 업데이트 아직 비정상(변수명 문제있음..)
+SQL문 groupby 수정
+서버 이관 관련 설정 수정 => servelet, encoding 
+mypage 이메일, 폰번호 수정 구현 =>
+
+
+survey 글자 몇배로 키워야!
+sort
+비밀번호 업데이트 기능 구현 아직 안됨
+
+
+https://kingle1024.tistory.com/82
+https://feeva.github.io/posts/%ED%86%B0%EC%BA%A3%EC%9D%98-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%99%B8%EB%B6%80%EB%A1%9C-%EA%B2%BD%EB%A1%9C-%EB%A7%A4%ED%95%91%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
+https://www.egovframe.go.kr/home/qainfo/qainfoRead.do?menuNo=69&qaId=QA_00000000000018567
+
+
+문항을 삭제하면 투표도 같이 삭제 되는디.
