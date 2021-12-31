@@ -1,0 +1,333 @@
+sort 터치 가능하게 추가
+
+전화로 연결되게
+
+sort 오류 해결 https://okky.kr/article/552035
+
+mobile => contact
+password hash 변수
+비밀번호 수정 구현!
+
+jquery.ui.touch.js
+
+		document.addEventListener("touchstart", iPadTouchHandler, false); // 안먹음
+		document.addEventListener("touchmove", iPadTouchHandler, false);
+		document.addEventListener("touchend", iPadTouchHandler, {passive: false});
+		document.addEventListener("touchcancel", iPadTouchHandler, {passive: false});
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=crazymonlong&logNo=221580029479
+
+이거 적용해보기
+
+touch library 바꿔보는것도 괜찮을ㄷ스
+기존 : http://codefactory.kr/2011/08/08/mobileweb-jquery-ui-touch-js/
+
+
+
+	    	let host;
+	    	let contact;
+	    	if (P.hostgroup || P.hostgroup.length!=0){
+	    		host = P.hostgroup;
+	    		contact = (!P.contact) ? user_mobile: P.contact;
+	    	} else if (P.contact && !P.hostgroup){
+	    		contact = P.contact;
+	    		host = user_department;
+	    	} else if (!P.contact && !P.hostgroup){
+	    		if (user_mobile != null || user_mobile.length != 0) {
+	    			contact = user_mobile;
+	    			host = user_department;
+	    		} else {
+	    			host = "성동구도시관리공단";
+	    			contact = "02-2204-7900";
+	    		}
+	    	} else {
+	    		host = "성동구도시관리공단";
+	    		contact = "02-2204-7900";	    		
+	    	}
+
+
+li .order-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: #dfe8eb47;
+    color: #9b929b;
+    font-weight: 700;
+}
+
+li .li-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* font-size: 1.75rem; */
+    height: 4rem;
+    margin-left: 1rem;
+}
+
+form#sort-it li {
+    position: relative;
+    min-height: 1em;
+    cursor: move;
+    /* padding: .5em .5em .5em .0em; */
+    border: 1px solid #ccc;
+    margin: .25em 0;
+    border-radius: .25em;
+    max-width: 14em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+
+[survey] cookie 복원, 반응형css수정
+setTimeout("WinClose();", 3000)
+
+function WinClose(){
+	top.window.open('http://www.naver.com?','_self').close();
+	top.window.opener=self;
+	top.self.close();
+}
+
+
+.app-theme-white .app-page-title {
+    background: rgba(255, 255, 255, 0.45); => #ffffffc7 밝게
+}
+
+.app-header__logo {
+    padding: 0.3rem 1.5rem 0.3rem 0;
+    height: 60px;
+    width: 250px;    => 280px;
+    display: flex;
+    align-items: center;
+    transition: width .2s;
+}
+
+16AAFF => #4bbdff
+fa-smail #4b63ff70
+
+남색
+#54659e
+
+전송실패 내역 안뜸
+오류: character varying(20) 자료형에 너무 긴 자료를 담으려고 합니다.
+
+DB 연결 수정
+apache-tomcat-8.5.71\webapps\zSurvey\WEB-INF\classes\egovframework\spring\context-datasource.xml
+
+      <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+        <property name="url" value="jdbc:log4jdbc:postgresql://localhost:5432/survey2" />
+        <property name="username" value="postgres"/>
+        <property name="password" value="sys"/>
+    </bean>
+   
+
+로그인 실패시 알림해야
+dash. css => overflow visible
+
+
+input type = password
+
+ppt 아이콘
+https://thenounproject.com/browse/creator/creativestall/icon-collections/?p=1
+
+ppt color palette
+https://coolors.co/ef6351-f9bab4-3e4d59-1c6f70-d1c8dd-2a756b-54659e
+https://coolors.co/ef6351-f9bab4-3e4d59-1c6f70-d1c8dd-2a756b-54659e
+
+screen shot
+https://sunstar2.tistory.com/1983
+개발 배경 : 기존 서비스의 한계
+주요기능 소개 및 컨셉 ( )
+- 설문지 생성
+- 설문 전송
+- 응답 내보내기
+- 응답 분석
+화면별 기능소개
+- 로그인
+- 공통영역
+- 대시보드
+- 설문생성 및 전송
+- 설문분석
+- 내정보
+
+
+1220
+중요!!!!!!!
+문항 수정 다이아로그 만들어야 함!!!1!!매우중요
+
+chart js img
+https://quickchart.io/documentation/chart-js/image-export/
+
+jqgrid img 삽입
+https://blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=rimmomos&logNo=130100267651
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jaeik714&logNo=140197196541
+http://ghostwil-program.blogspot.com/2015/12/jqgrid.html
+
+설문소개, 인원컬럼 삭제
+수정 다이얼로그에서  공개랑 인원버튼도 삭제할까
+
+문항 유형도 간략하게
+
+#e73862
+if exists (select * from poll_answer where )
+update ~~, active, number, update_at 
+where question_id, number,
+
+
+upsert
+
+
+에러 메시지 확인해야 함 DB 컬럼 형식 바꾼거 반영됐는지
+그리고 업데이트 잘못한거 복구 restore로 덮어 씌우자,..
+
+D:\survey\apache-tomcat-8.5.71\webapps\zSurvey\resource\css\extern
+
+
+로그인 실패시 오류메시지 반환 => how,,
+
+변경사항 
+header.jsp 에 target="_blank"추가
+헤더 돋보기 삭제..!
+
+셀렉트박스 내용수정
+
+getAnswer query
+active = 1 조건추가
+
+보기 삭제 돔추가
+
+프롬프트 알림 추가 prompt=> confirm
+
+전송후 메시지 띄움
+
+전송창의 주소록 추가시 vali check
+
+
+__ 서버 연결후 확인한 에러
+모바일 응답 loading 떠야해~
+페이지 나가기 안먹음
+클릭시 확대 문제 => https://liante0904.tistory.com/140
+floating 버튼 위치 문제
+응답 전부 null일때 제출 안하게 vali check
+
+
+이미지 다운로드 에러 (경로 매핑)
+카톡 인앱 실행시 확대되는 문제
+세션 쿠키 문제..!
+
+
+설문 잠금이 필요하겠다... <문항이랑 답변이랑 안꼬이게....>
+
+
+
+
+D:\survey\apache-tomcat-8.5.71\bin
+
+레이더형 라벨 없애
+
+분석테이블 - 대상 컬럼 삭제
+설문분석 -> 응답분석
+
+
+
+
+설문소개 데이터 저장할때 html textarea 내용이 content가 DB에 코드로 치환돼서 들어감 => 수정 피료
+innerHTML 하거나
+저장할때 java 문제일수도
+showLoading();
+hideLoading();
+finally {		
+		hideLoading();
+	}
+
+.always(()=>{hideLoading();})
+
+// invalid 체크 했으면 => 수정버튼 비활성화 노드 어케 찾니
+
+버튼 리스너를 바깥으루 해야할건디
+} else if (e.target.innerText == "수정"){ << 등호 하나였음 ㅠㅠㅠㅠ
+
+문항 수정할때 
+editQuestion에서 dataset은 잘 넘어가는거 같은디...
+content값이 안넘어감  => 아 서버 문제인듯
+
+dispatcher 에서 추가
+<mvc:resources mapping="/img/**" location="/img/**"/>
+<Context docBase="D:\sUpload" path="/img"/>
+/upload/ =>
+
+
+//리커트 척도 이런식으로 하는 게 좋다
+https://ko.surveymonkey.com/mp/customer-satisfaction-survey-template/
+
+
+context xml 
+
+https://eunbc-2020.tistory.com/136?category=960110
+
+
+======================================
+외부서버 다운
+https://ddoddofather.tistory.com/109
+
+https://groups.google.com/g/ksug/c/JM_-6x6HEk8
+
+[analysis] 문항수정 발생시 답변 길이 달라지면 table 뜨는거 err
+
+http://localhost/imgs/20211116145024240.img
+
+
+====================================
+
+동기화 이후 수정사항
+1. admin_login, insert 쿼리 추가
+2. analysis js 이미지 버튼 수정중
+3. survey 점수형 수정중
+
+
+window size 조정 하는 중.
+link 랑 img 반복적으로 시행시 오류 남
+새창에서 이미지 띄우는거 서버에 업데이트 아직 안했고,.
+카드 min-height 조정해야함. (SMS hist, anal, cre)
+
+
+// 쿼리 
+    <select id="getSMSHistory"  resultType="kakaoRequestVO">
+    	SELECT host_group, message, phone_num, phone_sent, alt_snd_dtm, alt_message
+		FROM sms_history
+		WHERE host_id = #{host_id}
+		ORDER BY alt_snd_dtm desc
+		LIMIT 100;
+    </select>
+
+sms history height 조정
+
+$(".poll-list-outer tbody").children().length==0 
+     공간
+
+1230 할일
+min-heigh table 마다!
+paging : https://mkil.tistory.com/227
+q type : 추가
+
+layout 수정
+#overlay{
+top: 60px; => 50px
+}
+
+.app-sidebar{width:280px=> 260px}
+.fixed-sidebar .app-main .app-main__outer{padding-left : 260}
+    left: 280px;
+
+
+1231 할일
+전송내역 cell overflow 처리
+웅덥분석 overflow 조정
+삭제된 문항의 투표 처리
+
+war 씌울때 fontawesome cdn 주의할것~
