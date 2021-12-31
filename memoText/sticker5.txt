@@ -1,0 +1,83 @@
+<< 1022 >>
+0. 팀장님께 보고하기 :: 이해하기 쉽도록
+ - 설문조사 서비스 구성 및 구조 
+ - 개발 단계
+ - 상세 개발 내용  WBS
+  : | 구분 | 활동 | 작업 | 담당 | 시작일 | 종료일
+    | 작업기간 | 산출물 | 차트
+구분 : 분석, 설계, 개발, 테스트
+ - 그 외 부가적으로 필요할거 같은 내용 : FIGMA
+
+0. 설문응답(모바일환경 위주) 페이지 개선
+   - 필수문항 표시하고 DB반영 (required 속성추가)
+   - 순위형
+   - rank기록 위한 id 수정 => 입력값 확인
+   - 파일입력 예외처리 (JS) >> 1022 마감
+   - 빨간버튼 : 설명 필요
+   - 이메일 & 전화번호
+   - 푸터에 문의번호 표시
+     생활체육팀 문의번호/열린체육팀 문의번호/행복체육팀 
+   - required 파란라인 표시 
+      => valid 되면 회색으로
+   - 작성중일때의 active 범위 
+      현재) 라인만 => 변경) 라인 + title
+   - 템플릿 색상변경
+
+-----------------------------------------------------------------
+1.  설문생성 페이지 개선
+** DB 수정 : poll_question valid 컬럼 추가
+- 문항 삭제 기능 (admin_poll_SQL, DashboardController, 
+       => question 조회할 때 valid = 0 조회 안되도록
+       => survey 에서 q 삭제해야
+          (getPollContainQuestion로 조회해서 update 요청 날려- addQuestionToPoll)
+- 문항 수정 기능이 없네... (보기 수정해야하는데)
+
+  - 설문내용 표에서 볼때 contents 데이터 잘라서 표시해야
+  - 사진 첨부 기능필요
+  -  날짜 문항 생성 수정
+  - 문항생성 페이지 sort오류 (time stamp)
+  - 문의번호 >> 관련 컬럼이나 테이블 필요
+  - clickable area 에서 버튼 제외 어케하누
+poll에서도 q지워야
+
+-----------------------------------------------------------------
+2. 새로운 페이지 기획 및 개발 => 순서모야
+
+https://elements.envato.com/hexabit-responsive-admin-template-XA26AGK
+
+border spacing
+https://developer.mozilla.org/ko/docs/Web/CSS/border-spacing
+
+https://developers.google.com/chart/interactive/docs/examples
+
+chart
+이거 써야지!
+https://www.chartjs.org/
+
+생성중인 api
+getPollCounted
+>> dashBoardController, 
+>> PollServicempl
+>> PollService.java
+>> PollController    /* 1029 수정중 getPollListCounted
+
+3. 카카오 전송내역 확인 페이지
+
+4. 마이페이지
+
+
+======================================
+3. 와이어 프레임
+4. 공단 직원 회원관리 페이지 구경하기
+6. 시설 개선점
+7. 스크롤 고정영역 (설문 생성시)
+8. 사용매뉴얼
+
+
+5. 아이콘 수정
+4. 버튼 위치 수정 (레이아웃 일부변경)
+
+createSurvey에 refresh 넣어야
+refreshQuestionInPoll();
+chart그리기
+// #totototo => #voteDetailGrid
