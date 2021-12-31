@@ -1,0 +1,56 @@
+이클립스 플러그인 설치
+(유용 플러그인: https://sopie2000.tistory.com/60)
+
+
+로그인 하는 법
+
+C:\Program Files\java\jdk-1.8.0\jre\bin\javaw.exe
+JRE_HOME
+
+C:\Program Files\java\jdk-1.8.0\jre
+
+https://j4bez.tistory.com/18
+
+<클라우드 페이지>
+http://192.168.20.150:8080/cgi-bin/
+
+64bit인지 확인 명령어
+java -d64 -version
+
+<SURVEY 로그인 주소>
+http://localhost:8080/login.do
+
+한글 인코딩오류 -> 관련파일 : Logininterceptor
+https://coco-log.tistory.com/46
+
+JS
+closer 
+stop propagation : 
+jsp
+tr : elements 받는 태그
+
+===========================
+** 이클립스 단축키
+Ctrl+객체클릭 변수나 클래스 등을 정의한 곳으로 이동
+Ctrl+Shift+G 변수나 함수 등을 레퍼런스 하는 곳으로 이동
+Alt+LEFT 이전 커서 위치로 이동
+Alt+RIGHT 다음 커서 위치로 이동
+
+출처: https://today-review.tistory.com/entry/자바-Eclipse-이클립스-단축키-정리모음 [Today review]
+
+
+
+a(document).on("focus",c,function(){a(this).siblings("label, .prefix").addClass("active")})
+container.querySelector("div").innerHTML = "";
+container.querySelector(".dialog_line_input_content").innerHTML = "";
+
+
+
+edadmin.happysd.or.kr/login/login.do
+http://edadmin.happysd.or.kr/login/login.do
+https://www.egovframe.go.kr/home/ntt/nttList.d
+
+환경변수 설정
+: 제어판 > 시스템 > (관련설정) 고급시스템 설정 > (고급탭) 환경변수
+
+https://answers.microsoft.com/ko-kr/windows/forum/all/%EC%9C%88%EB%8F%84%EC%9A%B010/16602844-2334-4195-975d-d968ae129e4c
