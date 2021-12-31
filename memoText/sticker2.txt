@@ -1,0 +1,94 @@
+ERD
+all_tables
+
+| board         | table | postgres
+| category     | table | postgres
+| poll             | table | postgres
+| poll_answer   | table | postgres
+| poll_category | table | postgres
+| poll_meta    | table | postgres
+| poll_question | table | postgres
+| poll_tag       | table | postgres
+| poll_vote     | table | postgres
+| tag              | table | postgres
+| user             | table | postgres
+
+JSP 
+1. 디렉티브 
+<%@ 디렉티브 이름 속성1="값1" 속성2="값2" ..%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"    
+     pageEncoding="UTF-8"%>
+
+
+--------------------------------------------------------------------
+설문관리 문제점
+- 개별화된 문항 관리가 어려움(문항과 설문이 동기화되어있어, 설문마다 문항에 수정이 있을경우 문항에 전부 업데이트되거나, 
+- 문항
+
+#d92550
+#d9255061
+
+#16aaff
+#16aaff6e
+
+
+폼만들기 현황 
+단답형 _ 완 
+파일형 _ 완  
+날짜형 _ 일단 완
+순위형 _ 일단 완
+복수형 _ 일단 완
+
+검증 현황
+_ 전체 (보기랑 질문 빈값 검증, 숫자형-문자형 )
+
+단답형 _ content null 가능하게 해야
+파일형 _ content null 가능하게 해야  
+날짜형 _ ok
+순위형 _ ok
+복수형 _ ok
+
+오류메시지 띄우는 방식 _ 메서드 찾아서 적용해보기
+
+
+
+1 단답형 = short_question
+2 복수형_다중선택 = multiple_question_check
+3 복수형_단일선택 = multiple_question_radio
+4 순위형 = ranking_question **num이 idx역할
+5 파일첨부형 = file_question
+6 날짜형 = date_question 
+7 시간형 = time_question
+
+
+1단답형__2복수형C__3복수형R__4순위형__5파일__6날짜__7시간 
+
+
+
+2. 스크립트 요소
+  - 선언부(Declaration)  <%!    %> 
+소속 변수 선언과 메소드 정의 (자바 메소드(함수)를 만듬)
+  - 표현식(Expression)  <%=    %> 
+변수, 계산식, 함수 호출 결과를 문자열 형태로 출력 (값을 출력)
+  - 스크립트릿(Scriptlet) <%     %> 
+자바 코드 기술 (자바 코드를 실행)
+
+https://udpark.tistory.com/127
+
+dialog_answer_box
+dialog_line_input
+.layer { display: none; }
+
+container = container.querySelector(".dialog_line_input_content");
+C = container;
+
+C:\Program Files\java\jdk1.8.0_301\jre\bin\server\jvm.dll
+
+Connection error: 
+org.postgresql.util.PSQLException: The connection attempt failed
+
+-Xmx512m
+
+style = "display:none"
+
+<i class="fas fa-minus-circle"></i>
