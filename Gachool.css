@@ -1,0 +1,8 @@
+.table-row table {
+    display:flex;
+}
+
+table tr {
+    flex-direction: column;
+
+}

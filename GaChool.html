@@ -1,51 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이건 비밀인데...</title>
     <style>
-
-        h1{
+        h1 {
             padding-top: 1.5rem;
             padding-bottom: 0.4rem;
-        color:rgb(157, 198, 9);}
-        
-        body{
+            color: rgb(157, 198, 9);
+        }
+
+        body {
             /* background-image: url("https://w7.pngwing.com/pngs/92/913/png-transparent-street-dance-breakdancing-hip-hop-music-locking-others-miscellaneous-arm-taekkyeon.png"); */
             background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbXa4hfJnIodQREZa_GibgeGCMBC5q_O1MxQ&usqp=CAU");
             /* background-image: url("https://www.vhv.rs/dpng/d/471-4713640_champagne-popping-png-champagne-bottle-popping-png-transparent.png"); */
             /* background-color: bisque; */
-            background-size: 44rem;
-            background-repeat:no-repeat;
-            text-align: center;  
+            /* background-repeat:no-repeat; */
+            text-align: center;
+            /* flex: inherit; */
             /* flex: auto; */
         }
-
-
     </style>
+    
+    <script type="text/javascript" src="./Gachool.js"></script>
+    <script type="text/javascript" src="./Gachool.css"></script>
 </head>
+
 <body>
-    <script>alert("엄마 놀라지 마세요 ㄷㄷ")
-    </script>
-    <h1>저 가출했어요</h1>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3CJ86vXDIjMv7nJQv42Lt8U6wLMbJk7rVqg&usqp=CAU">
-    <div class = lieLieLie>
-        불효녀는 웁니다
-        <!-- <button></button> -->
-    </div>
-    <div class = trueth>
-        소원이네서 자고갈게요
-    </div>
-    <div>
-    <input type="button" value="이번달 용돈은 안받을게요" onclick="alert('여기서 문제, 다음달 희원이의 용돈은?')"/>
-    <!-- <form> -->
-        
-        <input type="checkbox" name="show me the money" id="sayYes">
-        
-    <!-- </form> -->
+    <div class="main-form">
+        <canvas id="myChart" width="400" height="400"></canvas>
+<!-- 차트 그리기 하는중 with chart js -->
+
+
+        <script>alert("엄마 놀라지 마세요 ㄷㄷ")
+        </script>
+        <h1>저 가출했어요</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3CJ86vXDIjMv7nJQv42Lt8U6wLMbJk7rVqg&usqp=CAU">
+        <div class=lieLieLie>
+            불효녀는 웁니다
+            <!-- <button></button> -->
+        </div>
+        <div class=trueth>
+            소원이네서 자고갈게요
+        </div>
+        <div>
+            <input type="button" value="이번달 용돈은 안받을게요" onclick="alert('여기서 문제, 다음달 희원이의 용돈은?')" />
+            <!-- <form> -->
+
+            <input type="checkbox" name="show me the money" id="sayYes">
+
+            <!-- </form> -->
+        </div>
+
+        <div class="table-row">
+            <table class="table" style="background-color: rgb(35, 102, 203);">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">날짜</th>
+                        <th scope="col">금액</th>
+                        <th scope="col">상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>2021-10-21</td>
+                        <td>20,000원</td>
+                        <td>@다씀</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>2021-10-20</td>
+                        <td>51,000원</td>
+                        <td>@덜씀</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>2021-10-20</td>
+                        <td>7,000원</td>
+                        <td>@다씀</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+
     </div>
     <script></script>
 </body>
+
 </html>
