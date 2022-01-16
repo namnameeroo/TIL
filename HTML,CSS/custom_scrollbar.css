@@ -4,6 +4,15 @@ html ::-webkit-scrollbar {
     height: 10px;
 }
 
+html ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #dadada;
+    box-shadow: inset 0 0 5px #b2aeae;
+     border: none;
+}
+
+
+/* bar in box */
 .ui-dialog::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #dadada;
@@ -12,24 +21,12 @@ html ::-webkit-scrollbar {
     border: 2px solid transparent;
 }
 
+/* background */
 .ui-dialog::-webkit-scrollbar-track {
     border-radius: 10px;
     margin: 5px;
     /* background-color: #b1b1b1; */
     /* box-shadow: inset 0 0 5px #676464; */
-}
-
-
-html ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-   
-}
-html ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: #dadada;
-    box-shadow: inset 0 0 5px #b2aeae;
-     border: none;
 }
 
 /* app-main__inner .card::-webkit-scrollbar-thumb {
